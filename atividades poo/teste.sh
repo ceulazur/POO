@@ -1,0 +1,1 @@
+g++ estressados3.cpp && ./a.out<in
