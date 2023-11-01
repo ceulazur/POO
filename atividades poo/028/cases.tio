@@ -1,0 +1,225 @@
+>>>>>>>> cadastro pessoas
+addPessoa bruno meia
+addPessoa chico meia
+addPessoa aline inteira
+end
+========
+$addPessoa bruno meia
+$addPessoa chico meia
+$addPessoa aline inteira
+$end
+<<<<<<<<
+
+>>>>>>>> cadastro duplicado
+addPessoa bruno meia
+addPessoa chico meia
+addPessoa aline inteira
+addPessoa chico meia
+end
+========
+$addPessoa bruno meia
+$addPessoa chico meia
+$addPessoa aline inteira
+$addPessoa chico meia
+fail: pessoa chico ja existe
+$end
+<<<<<<<<
+
+>>>>>>>> show pessoas
+addPessoa bruno meia
+addPessoa chico meia
+addPessoa aline inteira
+addPessoa chico meia
+pessoas
+end
+========
+$addPessoa bruno meia
+$addPessoa chico meia
+$addPessoa aline inteira
+$addPessoa chico meia
+fail: pessoa chico ja existe
+$pessoas
+[aline:inteira, bruno:meia, chico:meia]
+$end
+<<<<<<<<
+
+>>>>>>>> cadastro eventos
+addPessoa bruno meia
+addPessoa chico meia
+addPessoa aline inteira
+addPessoa chico meia
+pessoas
+addEvento samba 70
+addEvento forro 50
+addEvento piano 15
+end
+========
+$addPessoa bruno meia
+$addPessoa chico meia
+$addPessoa aline inteira
+$addPessoa chico meia
+fail: pessoa chico ja existe
+$pessoas
+[aline:inteira, bruno:meia, chico:meia]
+$addEvento samba 70
+$addEvento forro 50
+$addEvento piano 15
+$end
+<<<<<<<<
+
+>>>>>>>> show eventos
+addPessoa bruno meia
+addPessoa chico meia
+addPessoa aline inteira
+addPessoa chico meia
+pessoas
+addEvento samba 70
+addEvento forro 50
+addEvento piano 15
+eventos
+end
+========
+$addPessoa bruno meia
+$addPessoa chico meia
+$addPessoa aline inteira
+$addPessoa chico meia
+fail: pessoa chico ja existe
+$pessoas
+[aline:inteira, bruno:meia, chico:meia]
+$addEvento samba 70
+$addEvento forro 50
+$addEvento piano 15
+$eventos
+[forro:50.00, piano:15.00, samba:70.00]
+$end
+<<<<<<<<
+
+>>>>>>>> cadastro duplicado
+addPessoa bruno meia
+addPessoa chico meia
+addPessoa aline inteira
+addPessoa chico meia
+pessoas
+addEvento samba 70
+addEvento forro 50
+addEvento piano 15
+eventos
+addEvento samba 90
+end
+========
+$addPessoa bruno meia
+$addPessoa chico meia
+$addPessoa aline inteira
+$addPessoa chico meia
+fail: pessoa chico ja existe
+$pessoas
+[aline:inteira, bruno:meia, chico:meia]
+$addEvento samba 70
+$addEvento forro 50
+$addEvento piano 15
+$eventos
+[forro:50.00, piano:15.00, samba:70.00]
+$addEvento samba 90
+fail: evento samba ja existe
+$end
+<<<<<<<<
+
+>>>>>>>> vender ingressos
+addPessoa bruno meia
+addPessoa chico meia
+addPessoa aline inteira
+addPessoa chico meia
+pessoas
+addEvento samba 70
+addEvento forro 50
+addEvento piano 15
+eventos
+addEvento samba 90
+vender bruno samba
+vendas
+vender chico samba
+vender aline samba
+vendas
+vender chico piano
+vendas
+end
+========
+$addPessoa bruno meia
+$addPessoa chico meia
+$addPessoa aline inteira
+$addPessoa chico meia
+fail: pessoa chico ja existe
+$pessoas
+[aline:inteira, bruno:meia, chico:meia]
+$addEvento samba 70
+$addEvento forro 50
+$addEvento piano 15
+$eventos
+[forro:50.00, piano:15.00, samba:70.00]
+$addEvento samba 90
+fail: evento samba ja existe
+$vender bruno samba
+$vendas
+[bruno:samba:35.00]
+$vender chico samba
+$vender aline samba
+$vendas
+[bruno:samba:35.00, chico:samba:35.00, aline:samba:70.00]
+$vender chico piano
+$vendas
+[bruno:samba:35.00, chico:samba:35.00, aline:samba:70.00, chico:piano:7.50]
+$end
+<<<<<<<<
+
+>>>>>>>> erro nas vendas
+addPessoa bruno meia
+addPessoa chico meia
+addPessoa aline inteira
+addPessoa chico meia
+pessoas
+addEvento samba 70
+addEvento forro 50
+addEvento piano 15
+eventos
+addEvento samba 90
+vender bruno samba
+vendas
+vender chico samba
+vender aline samba
+vendas
+vender chico piano
+vendas
+vender chico arraia
+vender joao samba
+end
+========
+$addPessoa bruno meia
+$addPessoa chico meia
+$addPessoa aline inteira
+$addPessoa chico meia
+fail: pessoa chico ja existe
+$pessoas
+[aline:inteira, bruno:meia, chico:meia]
+$addEvento samba 70
+$addEvento forro 50
+$addEvento piano 15
+$eventos
+[forro:50.00, piano:15.00, samba:70.00]
+$addEvento samba 90
+fail: evento samba ja existe
+$vender bruno samba
+$vendas
+[bruno:samba:35.00]
+$vender chico samba
+$vender aline samba
+$vendas
+[bruno:samba:35.00, chico:samba:35.00, aline:samba:70.00]
+$vender chico piano
+$vendas
+[bruno:samba:35.00, chico:samba:35.00, aline:samba:70.00, chico:piano:7.50]
+$vender chico arraia
+fail: evento arraia nao existe
+$vender joao samba
+fail: pessoa joao nao existe
+$end
+<<<<<<<<
